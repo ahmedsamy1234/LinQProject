@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Linq_EntityProjectModelStoreContainer" CdmEntityContainer="Linq_EntityProjectEntities4">
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="SSN_Client" ColumnName="SSN_Client" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel.Item">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name_item" ColumnName="Name_item" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="item_unit">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel.item_unit">
+        <MappingFragment StoreEntitySet="item_unit">
+          <ScalarProperty Name="Code_fk" ColumnName="Code_fk" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permission_item">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel.permission_item">
+        <MappingFragment StoreEntitySet="permission_item">
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
+          <ScalarProperty Name="P_id_fk" ColumnName="P_id_fk" />
+          <ScalarProperty Name="TypeOfPermision_fk" ColumnName="TypeOfPermision_fk" />
+          <ScalarProperty Name="Code_fk" ColumnName="Code_fk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permits">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel.Permit">
+        <MappingFragment StoreEntitySet="Permit">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="TypeOfPermision" ColumnName="TypeOfPermision" />
+          <ScalarProperty Name="warehouse_fk" ColumnName="warehouse_fk" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="SSN_supplier" ColumnName="SSN_supplier" />
+          <ScalarProperty Name="SSN_Clint" ColumnName="SSN_Clint" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="Name_person" ColumnName="Name_person" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="SSN_supplier" ColumnName="SSN_supplier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ware_to_from_Item">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel.Ware_to_from_Item">
+        <MappingFragment StoreEntitySet="Ware_to_from_Item">
+          <ScalarProperty Name="WhhouseFrom" ColumnName="WhhouseFrom" />
+          <ScalarProperty Name="WhhouseTo" ColumnName="WhhouseTo" />
+          <ScalarProperty Name="item_fk" ColumnName="item_fk" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="warehouses">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel.warehouse">
+        <MappingFragment StoreEntitySet="warehouse">
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name_warehouse" ColumnName="Name_warehouse" />
+          <ScalarProperty Name="supervisor" ColumnName="supervisor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Item_warehouse" TypeName="Linq_EntityProjectModel.Item_warehouse" StoreEntitySet="Item_warehouse">
+      <EndProperty Name="Item">
+        <ScalarProperty Name="Code" ColumnName="Code_item_Fk" />
+      </EndProperty>
+      <EndProperty Name="warehouse">
+        <ScalarProperty Name="Name_warehouse" ColumnName="name_WH_FK" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

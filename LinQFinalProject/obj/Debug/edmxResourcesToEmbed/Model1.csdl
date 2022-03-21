@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Linq_EntityProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="SSN_Client" />
+    </Key>
+    <Property Name="SSN_Client" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Person" Relationship="Self.FK__Client__SSN_Clie__34C8D9D1" FromRole="Client" ToRole="Person" />
+    <NavigationProperty Name="Permits" Relationship="Self.FK_Permit_Client" FromRole="Client" ToRole="Permit" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="Int32" Nullable="false" />
+    <Property Name="Name_item" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="permission_item" Relationship="Self.FK__permissio__Code___38996AB5" FromRole="Item" ToRole="permission_item" />
+    <NavigationProperty Name="item_unit" Relationship="Self.FK_item_unit_Item" FromRole="Item" ToRole="item_unit" />
+    <NavigationProperty Name="Ware_to_from_Item" Relationship="Self.FK_Ware_to_from_Item_Item" FromRole="Item" ToRole="Ware_to_from_Item" />
+    <NavigationProperty Name="warehouses" Relationship="Self.Item_warehouse" FromRole="Item" ToRole="warehouse" />
+  </EntityType>
+  <EntityType Name="item_unit">
+    <Key>
+      <PropertyRef Name="Code_fk" />
+      <PropertyRef Name="unit" />
+    </Key>
+    <Property Name="Code_fk" Type="Int32" Nullable="false" />
+    <Property Name="unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Item" Relationship="Self.FK_item_unit_Item" FromRole="item_unit" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="permission_item">
+    <Key>
+      <PropertyRef Name="P_id_fk" />
+      <PropertyRef Name="TypeOfPermision_fk" />
+      <PropertyRef Name="Code_fk" />
+    </Key>
+    <Property Name="Duration" Type="Int32" />
+    <Property Name="ExpiredDate" Type="DateTime" Precision="0" />
+    <Property Name="P_id_fk" Type="Int32" Nullable="false" />
+    <Property Name="TypeOfPermision_fk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Code_fk" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Item" Relationship="Self.FK__permissio__Code___38996AB5" FromRole="permission_item" ToRole="Item" />
+    <NavigationProperty Name="Permit" Relationship="Self.FK__permission_item__37A5467C" FromRole="permission_item" ToRole="Permit" />
+  </EntityType>
+  <EntityType Name="Permit">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="TypeOfPermision" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="TypeOfPermision" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="warehouse_fk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SSN_supplier" Type="Int32" />
+    <Property Name="SSN_Clint" Type="Int32" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Permit_Client" FromRole="Permit" ToRole="Client" />
+    <NavigationProperty Name="permission_item" Relationship="Self.FK__permission_item__37A5467C" FromRole="Permit" ToRole="permission_item" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_Permit_Supplier" FromRole="Permit" ToRole="Supplier" />
+    <NavigationProperty Name="warehouse" Relationship="Self.FK_Permit_warehouse" FromRole="Permit" ToRole="warehouse" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="SSN" />
+    </Key>
+    <Property Name="SSN" Type="Int32" Nullable="false" />
+    <Property Name="Name_person" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Client__SSN_Clie__34C8D9D1" FromRole="Person" ToRole="Client" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK__Supplier__SSN_su__31EC6D26" FromRole="Person" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="SSN_supplier" />
+    </Key>
+    <Property Name="SSN_supplier" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Permits" Relationship="Self.FK_Permit_Supplier" FromRole="Supplier" ToRole="Permit" />
+    <NavigationProperty Name="Person" Relationship="Self.FK__Supplier__SSN_su__31EC6D26" FromRole="Supplier" ToRole="Person" />
+  </EntityType>
+  <EntityType Name="Ware_to_from_Item">
+    <Key>
+      <PropertyRef Name="WhhouseFrom" />
+      <PropertyRef Name="WhhouseTo" />
+      <PropertyRef Name="item_fk" />
+    </Key>
+    <Property Name="WhhouseFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WhhouseTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="item_fk" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="Item" Relationship="Self.FK_Ware_to_from_Item_Item" FromRole="Ware_to_from_Item" ToRole="Item" />
+    <NavigationProperty Name="warehouse" Relationship="Self.FK_Ware_to_from_Item_warehouse" FromRole="Ware_to_from_Item" ToRole="warehouse" />
+    <NavigationProperty Name="warehouse1" Relationship="Self.FK_Ware_to_from_Item_warehouse1" FromRole="Ware_to_from_Item" ToRole="warehouse" />
+  </EntityType>
+  <EntityType Name="warehouse">
+    <Key>
+      <PropertyRef Name="Name_warehouse" />
+    </Key>
+    <Property Name="Address" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Name_warehouse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="supervisor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Permits" Relationship="Self.FK_Permit_warehouse" FromRole="warehouse" ToRole="Permit" />
+    <NavigationProperty Name="Ware_to_from_Item" Relationship="Self.FK_Ware_to_from_Item_warehouse" FromRole="warehouse" ToRole="Ware_to_from_Item" />
+    <NavigationProperty Name="Ware_to_from_Item1" Relationship="Self.FK_Ware_to_from_Item_warehouse1" FromRole="warehouse" ToRole="Ware_to_from_Item" />
+    <NavigationProperty Name="Items" Relationship="Self.Item_warehouse" FromRole="warehouse" ToRole="Item" />
+  </EntityType>
+  <Association Name="FK__Client__SSN_Clie__34C8D9D1">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="SSN" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="SSN_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Permit_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="Permit" Type="Self.Permit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="SSN_Client" />
+      </Principal>
+      <Dependent Role="Permit">
+        <PropertyRef Name="SSN_Clint" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__permissio__Code___38996AB5">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="permission_item" Type="Self.permission_item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="permission_item">
+        <PropertyRef Name="Code_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_item_unit_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="item_unit" Type="Self.item_unit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="item_unit">
+        <PropertyRef Name="Code_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ware_to_from_Item_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="Ware_to_from_Item" Type="Self.Ware_to_from_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Ware_to_from_Item">
+        <PropertyRef Name="item_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__permission_item__37A5467C">
+    <End Role="Permit" Type="Self.Permit" Multiplicity="1" />
+    <End Role="permission_item" Type="Self.permission_item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permit">
+        <PropertyRef Name="id" />
+        <PropertyRef Name="TypeOfPermision" />
+      </Principal>
+      <Dependent Role="permission_item">
+        <PropertyRef Name="P_id_fk" />
+        <PropertyRef Name="TypeOfPermision_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Permit_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="Permit" Type="Self.Permit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SSN_supplier" />
+      </Principal>
+      <Dependent Role="Permit">
+        <PropertyRef Name="SSN_supplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Permit_warehouse">
+    <End Role="warehouse" Type="Self.warehouse" Multiplicity="0..1" />
+    <End Role="Permit" Type="Self.Permit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="warehouse">
+        <PropertyRef Name="Name_warehouse" />
+      </Principal>
+      <Dependent Role="Permit">
+        <PropertyRef Name="warehouse_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier__SSN_su__31EC6D26">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="SSN" />
+      </Principal>
+      <Dependent Role="Supplier">
+        <PropertyRef Name="SSN_supplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ware_to_from_Item_warehouse">
+    <End Role="warehouse" Type="Self.warehouse" Multiplicity="1" />
+    <End Role="Ware_to_from_Item" Type="Self.Ware_to_from_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="warehouse">
+        <PropertyRef Name="Name_warehouse" />
+      </Principal>
+      <Dependent Role="Ware_to_from_Item">
+        <PropertyRef Name="WhhouseFrom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ware_to_from_Item_warehouse1">
+    <End Role="warehouse" Type="Self.warehouse" Multiplicity="1" />
+    <End Role="Ware_to_from_Item" Type="Self.Ware_to_from_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="warehouse">
+        <PropertyRef Name="Name_warehouse" />
+      </Principal>
+      <Dependent Role="Ware_to_from_Item">
+        <PropertyRef Name="WhhouseTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Item_warehouse">
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <End Role="warehouse" Type="Self.warehouse" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="Linq_EntityProjectEntities4" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clients" EntityType="Self.Client" />
+    <EntitySet Name="Items" EntityType="Self.Item" />
+    <EntitySet Name="item_unit" EntityType="Self.item_unit" />
+    <EntitySet Name="permission_item" EntityType="Self.permission_item" />
+    <EntitySet Name="Permits" EntityType="Self.Permit" />
+    <EntitySet Name="People" EntityType="Self.Person" />
+    <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+    <EntitySet Name="Ware_to_from_Item" EntityType="Self.Ware_to_from_Item" />
+    <EntitySet Name="warehouses" EntityType="Self.warehouse" />
+    <AssociationSet Name="FK__Client__SSN_Clie__34C8D9D1" Association="Self.FK__Client__SSN_Clie__34C8D9D1">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Permit_Client" Association="Self.FK_Permit_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Permit" EntitySet="Permits" />
+    </AssociationSet>
+    <AssociationSet Name="FK__permissio__Code___38996AB5" Association="Self.FK__permissio__Code___38996AB5">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="permission_item" EntitySet="permission_item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_item_unit_Item" Association="Self.FK_item_unit_Item">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="item_unit" EntitySet="item_unit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ware_to_from_Item_Item" Association="Self.FK_Ware_to_from_Item_Item">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Ware_to_from_Item" EntitySet="Ware_to_from_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK__permission_item__37A5467C" Association="Self.FK__permission_item__37A5467C">
+      <End Role="Permit" EntitySet="Permits" />
+      <End Role="permission_item" EntitySet="permission_item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Permit_Supplier" Association="Self.FK_Permit_Supplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Permit" EntitySet="Permits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Permit_warehouse" Association="Self.FK_Permit_warehouse">
+      <End Role="warehouse" EntitySet="warehouses" />
+      <End Role="Permit" EntitySet="Permits" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier__SSN_su__31EC6D26" Association="Self.FK__Supplier__SSN_su__31EC6D26">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Supplier" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ware_to_from_Item_warehouse" Association="Self.FK_Ware_to_from_Item_warehouse">
+      <End Role="warehouse" EntitySet="warehouses" />
+      <End Role="Ware_to_from_Item" EntitySet="Ware_to_from_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ware_to_from_Item_warehouse1" Association="Self.FK_Ware_to_from_Item_warehouse1">
+      <End Role="warehouse" EntitySet="warehouses" />
+      <End Role="Ware_to_from_Item" EntitySet="Ware_to_from_Item" />
+    </AssociationSet>
+    <AssociationSet Name="Item_warehouse" Association="Self.Item_warehouse">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="warehouse" EntitySet="warehouses" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

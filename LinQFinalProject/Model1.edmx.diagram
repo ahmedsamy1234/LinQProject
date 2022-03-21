@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b140e316e2984d19930f0f7da3413ef7" Name="Diagram1">
+        <EntityTypeShape EntityType="Linq_EntityProjectModel.Client" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Linq_EntityProjectModel.Item" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Linq_EntityProjectModel.item_unit" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Linq_EntityProjectModel.permission_item" Width="1.5" PointX="7.375" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Linq_EntityProjectModel.Permit" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Linq_EntityProjectModel.Person" Width="1.5" PointX="0.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Linq_EntityProjectModel.Supplier" Width="1.5" PointX="3" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Linq_EntityProjectModel.Ware_to_from_Item" Width="1.5" PointX="12.875" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Linq_EntityProjectModel.warehouse" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <AssociationConnector Association="Linq_EntityProjectModel.FK__Client__SSN_Clie__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="Linq_EntityProjectModel.FK_Permit_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="Linq_EntityProjectModel.FK__permissio__Code___38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="Linq_EntityProjectModel.FK_item_unit_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="Linq_EntityProjectModel.FK_Ware_to_from_Item_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="Linq_EntityProjectModel.FK__permission_item__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="Linq_EntityProjectModel.FK_Permit_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="Linq_EntityProjectModel.FK_Permit_warehouse" ManuallyRouted="false" />
+        <AssociationConnector Association="Linq_EntityProjectModel.FK__Supplier__SSN_su__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="Linq_EntityProjectModel.FK_Ware_to_from_Item_warehouse" ManuallyRouted="false" />
+        <AssociationConnector Association="Linq_EntityProjectModel.FK_Ware_to_from_Item_warehouse1" ManuallyRouted="false" />
+        <AssociationConnector Association="Linq_EntityProjectModel.Item_warehouse" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
