@@ -43,7 +43,8 @@
           <ScalarProperty Name="warehouse_fk" ColumnName="warehouse_fk" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="SSN_supplier" ColumnName="SSN_supplier" />
-          <ScalarProperty Name="SSN_Clint" ColumnName="SSN_Clint" />
+          <ScalarProperty Name="SSN_Client" ColumnName="SSN_Client" />
+          <ScalarProperty Name="DateOFOperation" ColumnName="DateOFOperation" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

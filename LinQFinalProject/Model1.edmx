@@ -56,7 +56,8 @@
           <Property Name="warehouse_fk" Type="varchar" MaxLength="50" />
           <Property Name="Quantity" Type="varchar" MaxLength="50" />
           <Property Name="SSN_supplier" Type="int" />
-          <Property Name="SSN_Clint" Type="int" />
+          <Property Name="SSN_Client" Type="int" />
+          <Property Name="DateOFOperation" Type="date" />
         </EntityType>
         <EntityType Name="Person">
           <Key>
@@ -188,7 +189,7 @@
               <PropertyRef Name="SSN_Client" />
             </Principal>
             <Dependent Role="Permit">
-              <PropertyRef Name="SSN_Clint" />
+              <PropertyRef Name="SSN_Client" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -373,7 +374,8 @@
           <Property Name="warehouse_fk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SSN_supplier" Type="Int32" />
-          <Property Name="SSN_Clint" Type="Int32" />
+          <Property Name="SSN_Client" Type="Int32" />
+          <Property Name="DateOFOperation" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Permit_Client" FromRole="Permit" ToRole="Client" />
           <NavigationProperty Name="permission_item" Relationship="Self.FK__permission_item__37A5467C" FromRole="Permit" ToRole="permission_item" />
           <NavigationProperty Name="Supplier" Relationship="Self.FK_Permit_Supplier" FromRole="Permit" ToRole="Supplier" />
@@ -446,7 +448,7 @@
               <PropertyRef Name="SSN_Client" />
             </Principal>
             <Dependent Role="Permit">
-              <PropertyRef Name="SSN_Clint" />
+              <PropertyRef Name="SSN_Client" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -671,7 +673,8 @@
                 <ScalarProperty Name="warehouse_fk" ColumnName="warehouse_fk" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="SSN_supplier" ColumnName="SSN_supplier" />
-                <ScalarProperty Name="SSN_Clint" ColumnName="SSN_Clint" />
+                <ScalarProperty Name="SSN_Client" ColumnName="SSN_Client" />
+                <ScalarProperty Name="DateOFOperation" ColumnName="DateOFOperation" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

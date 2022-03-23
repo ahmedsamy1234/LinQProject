@@ -16,7 +16,7 @@ namespace LinQFinalProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PermitForm());
+            Application.Run(new Reports());
         }
     }
 }

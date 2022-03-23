@@ -116,7 +116,7 @@
             // 
             // NameTextbox
             // 
-            this.NameTextbox.Location = new System.Drawing.Point(104, 249);
+            this.NameTextbox.Location = new System.Drawing.Point(104, 256);
             this.NameTextbox.Name = "NameTextbox";
             this.NameTextbox.Size = new System.Drawing.Size(156, 20);
             this.NameTextbox.TabIndex = 11;

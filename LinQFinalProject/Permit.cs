@@ -25,7 +25,8 @@ namespace LinQFinalProject
         public string warehouse_fk { get; set; }
         public string Quantity { get; set; }
         public Nullable<int> SSN_supplier { get; set; }
-        public Nullable<int> SSN_Clint { get; set; }
+        public Nullable<int> SSN_Client { get; set; }
+        public Nullable<System.DateTime> DateOFOperation { get; set; }
     
         public virtual Client Client { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -34,21 +35,22 @@ namespace LinQFinalProject
         public virtual warehouse warehouse { get; set; }
 
 
-        public int Check_is_Enough_in_Store(Linq_EntityProjectEntities4 Database,int  code)
+        public bool Check_is_Enough_in_Store(Linq_EntityProjectEntities4 Database, int code)
         {
-            int totalQuantity=0;
-            foreach(Permit permit in Database.Permits)
- 
-                {
-                        if (this.warehouse_fk == permit.warehouse_fk )
+            int totalQuantity = 0;
+            foreach (Permit permit in Database.Permits)
+
+            {
+                if (this.warehouse_fk == permit.warehouse_fk)
 
                 {
-                   // System.Windows.Forms.MessageBox.Show("dsfdsf");
+                    // System.Windows.Forms.MessageBox.Show("dsfdsf");
                     foreach (var item in permit.permission_item)
                     {
-                            if (item.P_id_fk== permit.id && item.Code_fk== code)
-                        {      if (item.TypeOfPermision_fk== "in")
-                                     totalQuantity= totalQuantity+int.Parse(permit.Quantity);
+                        if (item.P_id_fk == permit.id && item.Code_fk == code)
+                        {
+                            if (item.TypeOfPermision_fk == "in")
+                                totalQuantity = totalQuantity + int.Parse(permit.Quantity);
 
                             if (item.TypeOfPermision_fk == "out")
                                 totalQuantity = totalQuantity - int.Parse(permit.Quantity);
@@ -57,15 +59,15 @@ namespace LinQFinalProject
                         }
                     }
                 }
-           
-                        
-                   }
-            
-            {
-                return totalQuantity;
+
+
             }
-         
-           
+             if (totalQuantity- int.Parse(this.Quantity) >0)
+            {
+                return true;
+
+            } else 
+            return false;
         }
-    }
+        }
 }

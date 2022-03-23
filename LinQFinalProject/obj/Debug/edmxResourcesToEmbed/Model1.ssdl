@@ -51,7 +51,8 @@
     <Property Name="warehouse_fk" Type="varchar" MaxLength="50" />
     <Property Name="Quantity" Type="varchar" MaxLength="50" />
     <Property Name="SSN_supplier" Type="int" />
-    <Property Name="SSN_Clint" Type="int" />
+    <Property Name="SSN_Client" Type="int" />
+    <Property Name="DateOFOperation" Type="date" />
   </EntityType>
   <EntityType Name="Person">
     <Key>
@@ -183,7 +184,7 @@
         <PropertyRef Name="SSN_Client" />
       </Principal>
       <Dependent Role="Permit">
-        <PropertyRef Name="SSN_Clint" />
+        <PropertyRef Name="SSN_Client" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

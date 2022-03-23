@@ -35,5 +35,56 @@ namespace LinQFinalProject
         public virtual ICollection<Ware_to_from_Item> Ware_to_from_Item1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Item> Items { get; set; }
+
+
+        public static List<(int, string)> FindQuantityOfEachItemInStrore(Linq_EntityProjectEntities4 Database,string nameOfWareWouse, DateTime from,DateTime to)
+        {
+            List<(int, string)> myitems = new List<(int, string)>();
+
+            foreach (var nameofitem in Database.Items)
+            {
+                int totalQuantity = 0;
+                foreach (Permit permit in Database.Permits)
+
+                {
+
+                    int afterDateFrom = DateTime.Compare((DateTime)permit.DateOFOperation, from);
+                    int beforeDateTo = DateTime.Compare((DateTime)permit.DateOFOperation, to);
+                    if (nameOfWareWouse == permit.warehouse_fk && afterDateFrom>0 && beforeDateTo<0)
+
+                    {
+
+
+
+
+                        // System.Windows.Forms.MessageBox.Show("dsfdsf");
+                        foreach (var item in permit.permission_item)
+                        {
+                            if (item.P_id_fk == permit.id && item.Code_fk == nameofitem.Code)
+                            {
+                                if (item.TypeOfPermision_fk == "in")
+                                    totalQuantity = totalQuantity + int.Parse(permit.Quantity);
+
+                                if (item.TypeOfPermision_fk == "out")
+                                    totalQuantity = totalQuantity - int.Parse(permit.Quantity);
+
+
+                            }
+                        }
+                    }
+
+                    
+
+
+                }
+
+                myitems.Add((totalQuantity, nameofitem.Name_item));
+                
+
+
+
+            }
+            return myitems;
+        }
     }
 }

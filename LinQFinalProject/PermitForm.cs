@@ -88,16 +88,17 @@ namespace LinQFinalProject
             permit.TypeOfPermision = comboBox1.Text;
             permit.Quantity = quantity_textbox.Text;
             permit.warehouse_fk = warehouse_combox.Text;
+            permit.DateOFOperation = DateOfOperation.Value;
             if (comboBox1.Text == "in")
                 permit.SSN_supplier = int.Parse(supplier_combobox.Text);
             else
-                permit.SSN_Clint = int.Parse(Client_textbox.Text);
+                permit.SSN_Client = int.Parse(Client_textbox.Text);
             permission_item per_item = new permission_item();
             per_item.P_id_fk = permit.id;
             per_item.TypeOfPermision_fk = permit.TypeOfPermision;
             per_item.Code_fk = int.Parse(item_combobox.Text);
-            per_item.Duration = -(int.Parse(DateTime.Now.ToString("yyyy")) - int.Parse(dateTimePicker1.Value.ToString("yyyy")));
-            per_item.ExpiredDate = dateTimePicker1.Value;
+            per_item.Duration = -(int.Parse(DateTime.Now.ToString("yyyy")) - int.Parse(ExpiredDateofProduct.Value.ToString("yyyy")));
+            per_item.ExpiredDate = ExpiredDateofProduct.Value;
             permit.permission_item.Add(per_item);
 
             Database.Permits.Add(permit);
@@ -127,8 +128,19 @@ namespace LinQFinalProject
             permit.warehouse_fk = warehouse_combox.Text;
 
          
-                MessageBox.Show(permit.Check_is_Enough_in_Store(Database, int.Parse(item_combobox.Text)).ToString());
+                MessageBox.Show(permit.Check_is_Enough_in_Store(new Linq_EntityProjectEntities4(), int.Parse(item_combobox.Text)).ToString());
 
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
 
         }
     }

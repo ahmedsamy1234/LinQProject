@@ -31,6 +31,7 @@ namespace LinQFinalProject
             {
                 comboBox1.Items.Add(client.Person.SSN);
             }
+          //  this.reportViewer1.RefreshReport();
         }
 
         private void SSN_textBox_TextChanged(object sender, EventArgs e)
