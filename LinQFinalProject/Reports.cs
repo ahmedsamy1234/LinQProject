@@ -12,18 +12,19 @@ namespace LinQFinalProject
 {
     public partial class Reports : Form
     {
-       DataTable DataTableReport1;
+        DataTable DataTableReport1;
 
-        DataTable DataTableReport2;
+          DataTable DataTableReport2;
+        DataTable DataTableReport3;
 
-        Linq_EntityProjectEntities4 Database;
+          Linq_EntityProjectEntities5 Database;
         public Reports()
         {
             InitializeComponent();
           
 
             DataTableReport1 = new DataTable();
-            Database = new Linq_EntityProjectEntities4();
+            Database = new Linq_EntityProjectEntities5();
             DataTableReport1.Columns.Add(new DataColumn("Name_Of_Item"));
             DataTableReport1.Columns.Add(new DataColumn("Quantity"));
             dataGridView1.DataSource = DataTableReport1;
@@ -35,18 +36,38 @@ namespace LinQFinalProject
 
 
 
-            DataTableReport2= new DataTable();
-            Database = new Linq_EntityProjectEntities4();
-            DataTableReport2.Columns.Add(new DataColumn("Name_ofStore"));
-            DataTableReport2.Columns.Add(new DataColumn("Quantity"));
+            DataTableReport3= new DataTable();
+            Database = new Linq_EntityProjectEntities5();
+            DataTableReport3.Columns.Add(new DataColumn("Name_ofStore"));
+            DataTableReport3.Columns.Add(new DataColumn("Quantity"));
             dataGridView2.DataSource = DataTableReport2;
 
+
+
+
+
+
+
+            DataTableReport3 = new DataTable();
+            Database = new Linq_EntityProjectEntities5();
+            DataTableReport3.Columns.Add(new DataColumn("nameOfItem"));
+            DataTableReport3.Columns.Add(new DataColumn("CodeofItem"));
+            DataTableReport3.Columns.Add(new DataColumn("permission_id"));
+            DataTableReport3.Columns.Add(new DataColumn("dataofOperation"));
+            dataGridViewReport3.DataSource = DataTableReport3;
+
+
+      
             foreach (var item in Database.Items)
             {
                 SelectedItem.Items.Add(item.Code);
             }
 
 
+            foreach (var item in Database.Items)
+            {
+                ItemsComboBox.Items.Add(item.Code);
+            }
 
 
         }
@@ -61,7 +82,7 @@ namespace LinQFinalProject
             
             DataTableReport2.Rows.Clear();
 
-            foreach (ViewItemsWareHouse tuple in Item.FindQuantityOfSelectedItemInAllStores(Database,int.Parse(SelectedItem.Text),fromDateOfSelectedItem.Value,toDateOfSelectedItem.Value))
+            foreach (ViewItemsWareHouse tuple in new Item().FindQuantityOfSelectedItemInAllStores(Database,int.Parse(SelectedItem.Text),fromDateOfSelectedItem.Value,toDateOfSelectedItem.Value))
                 {
 
 
@@ -79,7 +100,7 @@ namespace LinQFinalProject
         {
             DataTableReport1.Rows.Clear();
 
-            foreach (var tuple in warehouse.FindQuantityOfEachItemInStrore(Database, wareHouses.Text, FromDatePicker.Value, toDatePicker.Value))
+            foreach (var tuple in helperfunction.FindQuantityOfEachItemInStrore(Database, wareHouses.Text, FromDatePicker.Value, toDatePicker.Value))
             {
 
 
@@ -95,6 +116,68 @@ namespace LinQFinalProject
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ItemsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var res = from item in Database.Items.AsEnumerable()
+                      join permissionitem in Database.permission_item.AsEnumerable()
+                      on item.Code equals permissionitem.Code_fk
+
+
+                      join permission in Database.Permits.AsEnumerable()
+                      on permissionitem.P_id_fk equals permission.id
+                      where
+                                  (DateTime.Compare((DateTime)permission.DateOFOperation, timeReport3from.Value) > 0) &&
+                                      (DateTime.Compare((DateTime)permission.DateOFOperation, timeReport3To.Value) < 0) && item.Code == int.Parse(ItemsComboBox.Text)
+
+
+                      select new
+                      {
+                          nameOfItem = item.Name_item.ToString(),
+                          CodeofItem = item.Code.ToString(),
+                          permission_id = permission.id.ToString(),
+                          dataofOperation = permission.DateOFOperation.ToString()
+
+                      };
+
+            DataTableReport3.Rows.Clear();
+
+
+
+            res.ToList().ForEach(item =>
+            {
+               
+
+                    DataRow drToAdd = DataTableReport3.NewRow();
+                    drToAdd["nameOfItem"] = item.nameOfItem;
+                    drToAdd["CodeofItem"] = item.CodeofItem;
+                    drToAdd["permission_id"] = item.permission_id;
+                    drToAdd["dataofOperation"] = item.dataofOperation;
+
+                    DataTableReport3.Rows.Add(drToAdd);
+                
+                DataTableReport3.AcceptChanges();
+                dataGridView1.DataSource = DataTableReport3;
+            });
+            
+            
+            
+
+
+
+
 
         }
     }

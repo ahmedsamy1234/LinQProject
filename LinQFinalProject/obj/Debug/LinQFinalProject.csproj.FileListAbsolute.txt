@@ -102,3 +102,4 @@ C:\Users\LENOVO\source\repos\ahmedsamy1234\LinQProject\LinQFinalProject\bin\Debu
 C:\Users\LENOVO\source\repos\ahmedsamy1234\LinQProject\LinQFinalProject\bin\Debug\EnvDTE.xml
 C:\Users\LENOVO\source\repos\ahmedsamy1234\LinQProject\LinQFinalProject\obj\Debug\LinQFinalProject.csproj.SuggestedBindingRedirects.cache
 C:\Users\LENOVO\source\repos\ahmedsamy1234\LinQProject\LinQFinalProject\obj\Debug\LinQFinalProject.Reports.resources
+C:\Users\LENOVO\source\repos\ahmedsamy1234\LinQProject\LinQFinalProject\obj\Debug\LinQFinalProject.ConvertingTableForm.resources

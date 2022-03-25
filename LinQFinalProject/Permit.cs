@@ -33,41 +33,5 @@ namespace LinQFinalProject
         public virtual ICollection<permission_item> permission_item { get; set; }
         public virtual Supplier Supplier { get; set; }
         public virtual warehouse warehouse { get; set; }
-
-
-        public bool Check_is_Enough_in_Store(Linq_EntityProjectEntities4 Database, int code)
-        {
-            int totalQuantity = 0;
-            foreach (Permit permit in Database.Permits)
-
-            {
-                if (this.warehouse_fk == permit.warehouse_fk)
-
-                {
-                    // System.Windows.Forms.MessageBox.Show("dsfdsf");
-                    foreach (var item in permit.permission_item)
-                    {
-                        if (item.P_id_fk == permit.id && item.Code_fk == code)
-                        {
-                            if (item.TypeOfPermision_fk == "in")
-                                totalQuantity = totalQuantity + int.Parse(permit.Quantity);
-
-                            if (item.TypeOfPermision_fk == "out")
-                                totalQuantity = totalQuantity - int.Parse(permit.Quantity);
-
-
-                        }
-                    }
-                }
-
-
-            }
-             if (totalQuantity- int.Parse(this.Quantity) >0)
-            {
-                return true;
-
-            } else 
-            return false;
-        }
-        }
+    }
 }

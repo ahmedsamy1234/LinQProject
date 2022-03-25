@@ -34,50 +34,5 @@ namespace LinQFinalProject
         public virtual ICollection<Ware_to_from_Item> Ware_to_from_Item { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<warehouse> warehouses { get; set; }
-
-
-        public static List<ViewItemsWareHouse> FindQuantityOfSelectedItemInAllStores(Linq_EntityProjectEntities4 Database, int codeOfItem, DateTime from, DateTime to)
-        {
-            List < ViewItemsWareHouse > QuantityPerStore= new List<ViewItemsWareHouse > ();
-            foreach (var WH in Database.warehouses)
-            {
-                int totalQuantity = 0;
-                foreach (Permit permit in Database.Permits)
-
-                {
-
-                    int afterDateFrom = DateTime.Compare((DateTime)permit.DateOFOperation, from);
-                    int beforeDateTo = DateTime.Compare((DateTime)permit.DateOFOperation, to);
-                    if (WH.Name_warehouse == permit.warehouse_fk && afterDateFrom > 0 && beforeDateTo < 0)
-
-                    {
-                        foreach (var item in permit.permission_item)
-                        {
-                            if (item.P_id_fk == permit.id && item.Code_fk == codeOfItem)
-                            {
-                                if (item.TypeOfPermision_fk == "in")
-                                    totalQuantity = totalQuantity + int.Parse(permit.Quantity);
-
-                                if (item.TypeOfPermision_fk == "out")
-                                    totalQuantity = totalQuantity - int.Parse(permit.Quantity);
-
-
-                            }
-                        }
-                    }
-
-
-
-
-                }
-
-                QuantityPerStore.Add(new ViewItemsWareHouse(totalQuantity,Database.Items.Find(codeOfItem).Name_item,WH.Name_warehouse));
-
-
-
-
-            }
-            return QuantityPerStore;
-        }
     }
 }

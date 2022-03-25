@@ -12,16 +12,15 @@ namespace LinQFinalProject
     using System;
     using System.Collections.Generic;
     
-    public partial class Ware_to_from_Item
+    public partial class itemsPerPermission
     {
-        public string WhhouseFrom { get; set; }
-        public string WhhouseTo { get; set; }
-        public int item_fk { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public Nullable<System.DateTime> DateOfoperation { get; set; }
-    
-        public virtual Item Item { get; set; }
-        public virtual warehouse warehouse { get; set; }
-        public virtual warehouse warehouse1 { get; set; }
+        public int id { get; set; }
+        public string TypeOfPermision { get; set; }
+        public string warehouse_fk { get; set; }
+        public string Quantity { get; set; }
+        public Nullable<System.DateTime> DateOFOperation { get; set; }
+        public Nullable<System.DateTime> ExpiredDate { get; set; }
+        public int Code_fk { get; set; }
+        public string Name_item { get; set; }
     }
 }

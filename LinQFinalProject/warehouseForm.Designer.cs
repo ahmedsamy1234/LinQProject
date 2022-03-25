@@ -42,7 +42,7 @@
             // 
             // Edit
             // 
-            this.Edit.Location = new System.Drawing.Point(242, 233);
+            this.Edit.Location = new System.Drawing.Point(286, 241);
             this.Edit.Name = "Edit";
             this.Edit.Size = new System.Drawing.Size(75, 23);
             this.Edit.TabIndex = 44;
@@ -51,7 +51,7 @@
             // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(146, 233);
+            this.delete.Location = new System.Drawing.Point(190, 241);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(75, 23);
             this.delete.TabIndex = 43;
@@ -61,7 +61,7 @@
             // 
             // Add
             // 
-            this.Add.Location = new System.Drawing.Point(53, 233);
+            this.Add.Location = new System.Drawing.Point(97, 241);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(75, 23);
             this.Add.TabIndex = 42;
@@ -72,7 +72,7 @@
             // unit
             // 
             this.unit.AutoSize = true;
-            this.unit.Location = new System.Drawing.Point(50, 182);
+            this.unit.Location = new System.Drawing.Point(94, 190);
             this.unit.Name = "unit";
             this.unit.Size = new System.Drawing.Size(55, 13);
             this.unit.TabIndex = 40;
@@ -80,14 +80,14 @@
             // 
             // supervisor_textbox
             // 
-            this.supervisor_textbox.Location = new System.Drawing.Point(115, 175);
+            this.supervisor_textbox.Location = new System.Drawing.Point(159, 183);
             this.supervisor_textbox.Name = "supervisor_textbox";
             this.supervisor_textbox.Size = new System.Drawing.Size(156, 20);
             this.supervisor_textbox.TabIndex = 39;
             // 
             // name_textBox
             // 
-            this.name_textBox.Location = new System.Drawing.Point(115, 105);
+            this.name_textBox.Location = new System.Drawing.Point(159, 113);
             this.name_textBox.Name = "name_textBox";
             this.name_textBox.Size = new System.Drawing.Size(156, 20);
             this.name_textBox.TabIndex = 35;
@@ -95,7 +95,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 147);
+            this.label2.Location = new System.Drawing.Point(94, 155);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 38;
@@ -104,7 +104,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(115, 69);
+            this.comboBox1.Location = new System.Drawing.Point(159, 77);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(156, 21);
             this.comboBox1.TabIndex = 34;
@@ -113,7 +113,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 108);
+            this.label1.Location = new System.Drawing.Point(94, 116);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 37;
@@ -121,7 +121,7 @@
             // 
             // address_textbox
             // 
-            this.address_textbox.Location = new System.Drawing.Point(115, 140);
+            this.address_textbox.Location = new System.Drawing.Point(159, 148);
             this.address_textbox.Name = "address_textbox";
             this.address_textbox.Size = new System.Drawing.Size(156, 20);
             this.address_textbox.TabIndex = 36;
@@ -130,7 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(467, 347);
             this.Controls.Add(this.Edit);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.Add);

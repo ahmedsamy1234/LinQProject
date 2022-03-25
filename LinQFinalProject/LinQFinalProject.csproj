@@ -89,12 +89,19 @@
     <Compile Include="CllientForm.Designer.cs">
       <DependentUpon>CllientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConvertingTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConvertingTableForm.Designer.cs">
+      <DependentUpon>ConvertingTableForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="helperfunction.cs" />
     <Compile Include="Item.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -103,6 +110,9 @@
     </Compile>
     <Compile Include="ItemForm.Designer.cs">
       <DependentUpon>ItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="itemsPerPermission.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="item_unit.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -149,6 +159,9 @@
     <Compile Include="Supplier.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewItemsWareHouse.cs" />
     <Compile Include="warehouse.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -170,6 +183,9 @@
     </Compile>
     <EmbeddedResource Include="CllientForm.resx">
       <DependentUpon>CllientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConvertingTableForm.resx">
+      <DependentUpon>ConvertingTableForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

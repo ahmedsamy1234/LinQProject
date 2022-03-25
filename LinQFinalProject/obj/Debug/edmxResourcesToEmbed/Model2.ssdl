@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Linq_EntityProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="Linq_EntityProjectModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Client">
     <Key>
       <PropertyRef Name="SSN_Client" />
@@ -91,7 +91,6 @@
     <Property Name="WhhouseTo" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="item_fk" Type="int" Nullable="false" />
     <Property Name="Quantity" Type="int" />
-    <Property Name="DateOfoperation" Type="date" />
   </EntityType>
   <EntityType Name="warehouse">
     <Key>
@@ -277,7 +276,7 @@ warning 6002: The table/view 'Linq_EntityProject.dbo.itemsPerPermission' does no
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Linq_EntityProjectModelStoreContainer">
+  <EntityContainer Name="Linq_EntityProjectModel1StoreContainer">
     <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="item_unit" EntityType="Self.item_unit" Schema="dbo" store:Type="Tables" />

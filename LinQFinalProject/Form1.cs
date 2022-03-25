@@ -19,7 +19,7 @@ namespace LinQFinalProject
 
         private void add_client_Click(object sender, EventArgs e)
         {
-            Linq_EntityProjectEntities4 Database = new Linq_EntityProjectEntities4();
+            Linq_EntityProjectEntities5 Database = new Linq_EntityProjectEntities5();
             foreach(Person person in  Database.People)
             {
 

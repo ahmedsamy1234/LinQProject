@@ -12,7 +12,7 @@ namespace LinQFinalProject
 {
     public partial class SupplierForm : Form
     {
-        Linq_EntityProjectEntities4 Database;
+        Linq_EntityProjectEntities5 Database;
         public SupplierForm()
         {
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace LinQFinalProject
 
         private void _ٍSupplier_Load(object sender, EventArgs e)
         {
-            Database = new Linq_EntityProjectEntities4();
+            Database = new Linq_EntityProjectEntities5();
             foreach (var supplier in Database.Suppliers)
             {
                 comboBox1.Items.Add(supplier.Person.SSN);

@@ -12,17 +12,17 @@ namespace LinQFinalProject
 {
     public partial class PermitForm : Form
     {
-        Linq_EntityProjectEntities4 Database;
+        Linq_EntityProjectEntities5 Database;
         Permit permit = new Permit();
         public PermitForm()
         {
             InitializeComponent();
             comboBox1.Items.Add("in");
             comboBox1.Items.Add("out");
-            Database = new Linq_EntityProjectEntities4();
+            Database = new Linq_EntityProjectEntities5();
             Client_textbox.Visible = false;
             supplier_combobox.Visible = false;
-
+          
             foreach (var WH in Database.warehouses)
             {
 
@@ -128,7 +128,7 @@ namespace LinQFinalProject
             permit.warehouse_fk = warehouse_combox.Text;
 
          
-                MessageBox.Show(permit.Check_is_Enough_in_Store(new Linq_EntityProjectEntities4(), int.Parse(item_combobox.Text)).ToString());
+                MessageBox.Show(permit.Check_is_Enough_in_Store(new Linq_EntityProjectEntities5(), int.Parse(item_combobox.Text)).ToString());
 
 
         }

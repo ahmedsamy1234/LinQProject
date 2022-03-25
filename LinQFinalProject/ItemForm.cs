@@ -13,11 +13,11 @@ namespace LinQFinalProject
 {
     public partial class ItemForm : Form
     {
-        Linq_EntityProjectEntities4 Database;
+        Linq_EntityProjectEntities5 Database;
         public ItemForm()
         {
             InitializeComponent();
-            Database= new Linq_EntityProjectEntities4();
+            Database= new Linq_EntityProjectEntities5();
 
         }
 

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Linq_EntityProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="Linq_EntityProjectModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Client">
     <Key>
       <PropertyRef Name="SSN_Client" />
@@ -100,7 +100,6 @@
     <Property Name="WhhouseTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="item_fk" Type="Int32" Nullable="false" />
     <Property Name="Quantity" Type="Int32" />
-    <Property Name="DateOfoperation" Type="DateTime" Precision="0" />
     <NavigationProperty Name="Item" Relationship="Self.FK_Ware_to_from_Item_Item" FromRole="Ware_to_from_Item" ToRole="Item" />
     <NavigationProperty Name="warehouse" Relationship="Self.FK_Ware_to_from_Item_warehouse" FromRole="Ware_to_from_Item" ToRole="warehouse" />
     <NavigationProperty Name="warehouse1" Relationship="Self.FK_Ware_to_from_Item_warehouse1" FromRole="Ware_to_from_Item" ToRole="warehouse" />
@@ -271,7 +270,7 @@
     <End Role="Item" Type="Self.Item" Multiplicity="*" />
     <End Role="warehouse" Type="Self.warehouse" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="Linq_EntityProjectEntities6" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Linq_EntityProjectEntities5" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Clients" EntityType="Self.Client" />
     <EntitySet Name="Items" EntityType="Self.Item" />
     <EntitySet Name="item_unit" EntityType="Self.item_unit" />

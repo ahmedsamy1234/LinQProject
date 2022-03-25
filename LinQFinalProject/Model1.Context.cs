@@ -13,10 +13,10 @@ namespace LinQFinalProject
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Linq_EntityProjectEntities4 : DbContext
+    public partial class Linq_EntityProjectEntities5 : DbContext
     {
-        public Linq_EntityProjectEntities4()
-            : base("name=Linq_EntityProjectEntities4")
+        public Linq_EntityProjectEntities5()
+            : base("name=Linq_EntityProjectEntities6")
         {
         }
     
@@ -32,7 +32,9 @@ namespace LinQFinalProject
         public virtual DbSet<Permit> Permits { get; set; }
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Ware_to_from_Item> Ware_to_from_Item { get; set; }
         public virtual DbSet<warehouse> warehouses { get; set; }
+        public virtual DbSet<itemsPerPermission> itemsPerPermissions { get; set; }
     }
 }

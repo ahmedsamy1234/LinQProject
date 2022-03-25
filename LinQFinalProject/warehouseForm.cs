@@ -12,7 +12,8 @@ namespace LinQFinalProject
 {
     public partial class warehouseForm : Form
     {
-        Linq_EntityProjectEntities4 Database;
+        Linq_EntityProjectEntities5 Database;
+
 
         public warehouseForm()
         {
@@ -36,7 +37,7 @@ namespace LinQFinalProject
 
         private void warehouseForm_Load(object sender, EventArgs e)
         {
-            Database = new Linq_EntityProjectEntities4();
+            Database = new Linq_EntityProjectEntities5();
             foreach (var warehouse in Database.warehouses)
             {
                 comboBox1.Items.Add(warehouse.Name_warehouse);

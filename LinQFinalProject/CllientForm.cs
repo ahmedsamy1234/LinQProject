@@ -12,7 +12,7 @@ namespace LinQFinalProject
 {
     public partial class CllientForm : Form
     {
-        Linq_EntityProjectEntities4 Database;
+        Linq_EntityProjectEntities5 Database;
 
         public CllientForm()
         {
@@ -26,7 +26,7 @@ namespace LinQFinalProject
 
         private void CllientForm_Load(object sender, EventArgs e)
         {
-             Database = new Linq_EntityProjectEntities4();
+             Database = new Linq_EntityProjectEntities5();
             foreach (var client in Database.Clients)
             {
                 comboBox1.Items.Add(client.Person.SSN);

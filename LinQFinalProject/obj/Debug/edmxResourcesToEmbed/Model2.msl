@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Linq_EntityProjectModelStoreContainer" CdmEntityContainer="Linq_EntityProjectEntities6">
+  <EntityContainerMapping StorageEntityContainer="Linq_EntityProjectModel1StoreContainer" CdmEntityContainer="Linq_EntityProjectEntities5">
     <EntitySetMapping Name="Clients">
-      <EntityTypeMapping TypeName="Linq_EntityProjectModel.Client">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel1.Client">
         <MappingFragment StoreEntitySet="Client">
           <ScalarProperty Name="SSN_Client" ColumnName="SSN_Client" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Items">
-      <EntityTypeMapping TypeName="Linq_EntityProjectModel.Item">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel1.Item">
         <MappingFragment StoreEntitySet="Item">
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="Name_item" ColumnName="Name_item" />
@@ -17,7 +17,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="item_unit">
-      <EntityTypeMapping TypeName="Linq_EntityProjectModel.item_unit">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel1.item_unit">
         <MappingFragment StoreEntitySet="item_unit">
           <ScalarProperty Name="Code_fk" ColumnName="Code_fk" />
           <ScalarProperty Name="unit" ColumnName="unit" />
@@ -25,7 +25,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="permission_item">
-      <EntityTypeMapping TypeName="Linq_EntityProjectModel.permission_item">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel1.permission_item">
         <MappingFragment StoreEntitySet="permission_item">
           <ScalarProperty Name="Duration" ColumnName="Duration" />
           <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
@@ -36,7 +36,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Permits">
-      <EntityTypeMapping TypeName="Linq_EntityProjectModel.Permit">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel1.Permit">
         <MappingFragment StoreEntitySet="Permit">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="TypeOfPermision" ColumnName="TypeOfPermision" />
@@ -49,7 +49,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="People">
-      <EntityTypeMapping TypeName="Linq_EntityProjectModel.Person">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel1.Person">
         <MappingFragment StoreEntitySet="Person">
           <ScalarProperty Name="SSN" ColumnName="SSN" />
           <ScalarProperty Name="Name_person" ColumnName="Name_person" />
@@ -61,14 +61,14 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Suppliers">
-      <EntityTypeMapping TypeName="Linq_EntityProjectModel.Supplier">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel1.Supplier">
         <MappingFragment StoreEntitySet="Supplier">
           <ScalarProperty Name="SSN_supplier" ColumnName="SSN_supplier" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="Linq_EntityProjectModel.sysdiagram">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel1.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -79,18 +79,17 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Ware_to_from_Item">
-      <EntityTypeMapping TypeName="Linq_EntityProjectModel.Ware_to_from_Item">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel1.Ware_to_from_Item">
         <MappingFragment StoreEntitySet="Ware_to_from_Item">
           <ScalarProperty Name="WhhouseFrom" ColumnName="WhhouseFrom" />
           <ScalarProperty Name="WhhouseTo" ColumnName="WhhouseTo" />
           <ScalarProperty Name="item_fk" ColumnName="item_fk" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="DateOfoperation" ColumnName="DateOfoperation" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="warehouses">
-      <EntityTypeMapping TypeName="Linq_EntityProjectModel.warehouse">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel1.warehouse">
         <MappingFragment StoreEntitySet="warehouse">
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Name_warehouse" ColumnName="Name_warehouse" />
@@ -99,7 +98,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="itemsPerPermissions">
-      <EntityTypeMapping TypeName="Linq_EntityProjectModel.itemsPerPermission">
+      <EntityTypeMapping TypeName="Linq_EntityProjectModel1.itemsPerPermission">
         <MappingFragment StoreEntitySet="itemsPerPermission">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="TypeOfPermision" ColumnName="TypeOfPermision" />
@@ -112,7 +111,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="Item_warehouse" TypeName="Linq_EntityProjectModel.Item_warehouse" StoreEntitySet="Item_warehouse">
+    <AssociationSetMapping Name="Item_warehouse" TypeName="Linq_EntityProjectModel1.Item_warehouse" StoreEntitySet="Item_warehouse">
       <EndProperty Name="Item">
         <ScalarProperty Name="Code" ColumnName="Code_item_Fk" />
       </EndProperty>
