@@ -12,6 +12,12 @@ namespace LinQFinalProject
       public int CodeOfOItem;
       public String NameOfitem;
         public int  Quantity;
-        
+
+        public ItemPerWareHouse(int codeOfOItem, string nameOfitem, int quantity)
+        {
+            CodeOfOItem = codeOfOItem;
+            NameOfitem = nameOfitem;
+            Quantity = quantity;
+        }
     }
 }
